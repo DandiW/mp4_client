@@ -1,8 +1,8 @@
-var mp4Controllers = angular.module('mp4Controllers', []);
+var Controllers = angular.module('Controllers', []);
 
 
 
-mp4Controllers.controller('UsersController', ['$scope','$http', '$q', '$location', 'UserFunction', 'UserID', function($scope, $http, $q, $location ,UserFunction,UserID) {
+Controllers.controller('UsersController', ['$scope','$http', '$q', '$location', 'UserFunction', 'UserID', function($scope, $http, $q, $location ,UserFunction,UserID) {
      var selectedUserID = "";
      UserFunction.get()
         .success(function(data){
@@ -25,7 +25,7 @@ mp4Controllers.controller('UsersController', ['$scope','$http', '$q', '$location
 }]);
 
 
-mp4Controllers.controller('UserAddController', ['$scope','$http', '$location', 'UserFunction', function($scope, $http, $location ,UserFunction) {
+Controllers.controller('UserAddController', ['$scope','$http', '$location', 'UserFunction', function($scope, $http, $location ,UserFunction) {
     $scope.user = {name: "", email: ""};
     var nameValid = false;
     var emailValid = false;
@@ -88,7 +88,7 @@ mp4Controllers.controller('UserAddController', ['$scope','$http', '$location', '
 
 
 
-mp4Controllers.controller('TasksController', ['$scope','$http', '$q', '$location', 'TaskFunction', 'UserID', function($scope, $http, $q, $location ,TaskFunction,UserID) {
+Controllers.controller('TasksController', ['$scope','$http', '$q', '$location', 'TaskFunction', 'UserID', function($scope, $http, $q, $location ,TaskFunction,UserID) {
 
     var selectedTaskID ="";
 $scope.events = [];
@@ -162,7 +162,7 @@ $scope.currentPage = 1;  //what page to start on
 
 
 
-mp4Controllers.controller('TaskAddController', ['$scope','$http', '$q','$location', 'TaskFunction', 'UserFunction', function($scope, $http, $q, $location ,TaskFunction, UserFunction) {
+Controllers.controller('TaskAddController', ['$scope','$http', '$q','$location', 'TaskFunction', 'UserFunction', function($scope, $http, $q, $location ,TaskFunction, UserFunction) {
     $scope.task = {name: "", description: "", deadline: "", completed: false, assignedUser:"", assignedUserName:"unassigned",dateCreated:""};
     var nameValid = false;
     var deadlineValid = false;
@@ -221,7 +221,7 @@ mp4Controllers.controller('TaskAddController', ['$scope','$http', '$q','$locatio
 	};
 }]);
 
-mp4Controllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
+Controllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
   $scope.url = $window.sessionStorage.baseurl;
   
   $scope.setUrl = function(){
@@ -234,7 +234,7 @@ mp4Controllers.controller('SettingsController', ['$scope' , '$window' , function
 
 
 
-mp4Controllers.controller('TaskDetailController', ['$scope', '$location', 'TaskFunction','TaskID' , function($scope, $location, TaskFunction, TaskID) {
+Controllers.controller('TaskDetailController', ['$scope', '$location', 'TaskFunction','TaskID' , function($scope, $location, TaskFunction, TaskID) {
   
 
     $scope.editTask = function(){
@@ -243,7 +243,7 @@ mp4Controllers.controller('TaskDetailController', ['$scope', '$location', 'TaskF
 }]);
 
 
-mp4Controllers.controller('TaskEditController', ['$scope', '$location', 'TaskFunction','TaskID' , function($scope, $location, TaskFunction, TaskID) {
+Controllers.controller('TaskEditController', ['$scope', '$location', 'TaskFunction','TaskID' , function($scope, $location, TaskFunction, TaskID) {
   
     
     
