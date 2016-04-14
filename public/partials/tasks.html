@@ -1,0 +1,98 @@
+<div>
+    <div class="row text-center">
+        <div class="text-center columns small-centered ">
+            <h3 class="">Tasks:</h3>
+            <button ng-click="addTask()" class="button success ">Add Task</button>
+        </div>
+    </div>
+    <div class="" ng-model="query">
+        <div class="columns small-centered  small-3">
+            <input type="radio" ng-click="updateQuery(0)" name="option" ng-model="option" value="pending"><label>Pending</label>
+            <input type="radio" ng-click="updateQuery(0)" name="option" ng-model="option" value="completed"><label>Completed</label>
+            <input type="radio" ng-click="updateQuery(0)" name="option" ng-model="option" value="all"><label>All</label>
+        </div>
+
+        
+              
+        <div class="columns small-centered  small-4">
+            <select  ng-model="sortBy" >
+                <option value="name">name</option>
+                <option value="deadline">deadline</option>
+                <option value="dateCreated">dateCreated</option>
+                <option value="username">username</option>
+            </select>
+        </div>
+
+<!--
+        
+        
+    
+-->
+            
+<fieldset class="small-centered small-4 text-center">
+  <input ng-click="updateQuery(0)" class = "inputvalue" g-model="ascending" type="radio" name="order" ng-value="true" checked> Ascending
+  <input ng-click="updateQuery(0)" g-model="ascending" class = "inputvalue" type="radio" name="order" ng-value="false"> Descending<br>
+</fieldset> 
+
+<!--//////////-->
+        
+        
+<ul class="pagination text-center" role="navigation" aria-label="Pagination">
+  <li class="pagination-previous disabled">Previous</li>
+  <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+  <li><a href="#" aria-label="Page 2">2</a></li>
+  <li><a href="#" aria-label="Page 3">3</a></li>
+  <li><a href="#" aria-label="Page 4">4<i/a></li>
+  <li class="ellipsis"></li>
+  <li><a href="#" aria-label="Page 12">12</a></li>
+  <li><a href="#" aria-label="Page 13">13</a></li>
+  <li class="pagination-next"><a href="#" aria-label="Next page">Next</a></li>
+</ul>
+
+
+
+
+    <form>
+        <div class="row text-center">
+            <div class="column small-12">
+               <a class="left fa fa-chevron-circle-left fa-2x columns small-1" ng-click="pagination($event)" ></a>
+            <a class="right fa fa-chevron-circle-right fa-2x columns small-1"
+                 ng-click="pagination($event)" ></a>
+                
+                </div>
+
+            <div class="column small-centered" >
+                
+       
+                <hr>
+                <ol class=" small-block-grid-1 block-height" >
+                    <li ng-repeat="task in tasks" id="{{task._id}}">
+                        <div class="lside columns small-12">
+                            <a ng-click="onetask(task._id)" >
+                                <div style="color:brown" ng-bind="task.name"></div>
+                            </a>
+                          
+                        </div>
+                        <div class="column small-6 lside" >
+                            <div>Deadline:</div>
+                            <div ng-bind="task.deadline | date"></div>
+                            <div>Assigned to</div>
+                            <div ng-bind="task.assignedUserName"></div>
+                        </div>
+                        <div>
+                        <div class="column small-6 rside" >
+                            
+                        
+                        <div class="rside columns small-12">
+                            <button ng-click="delete()" class="button  alert">Delete</button>
+                        </div>
+                        </div>
+                   
+                        <hr>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </form>
+</div>
+    

@@ -1,0 +1,52 @@
+<div>
+
+    <div class="row">
+        <div class="text-center columns small-centered medium-centered large-centered">
+            <h3 class="left">Add User:</h3>
+        </div>
+    </div>
+
+    <!-- pass in the variable if our form is valid or invalid -->
+    <div class="row ">
+    <form class="userForm columns small-6 small-centered text-centered" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{'has-error': userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Name <medium style="color: #cc0000">*required</medium></label>
+            
+            <input type="text" name="name" class="form-control" ng-model="user.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block" style="background-color:red; color: white">You name is required.</p>
+        
+        </div>
+        
+<!--
+         USERNAME 
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="0" ng-maxlength="8">
+            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+-->
+            
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>Email<medium style="color: #cc0000">*required</medium></label>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block" style=" background-color:red; color: white">Enter a valid email.</p>
+            
+        </div>
+
+        
+            <button type="submit" class="button">Submit</button>
+        
+        
+     </form>
+        <div class="aftersubmit row text-center" style="display:none">
+            <div class="small-6 small-centered">
+                <h3 style="color: #FFFFFF"></h3>
+            </div>
+        </div>
+       
+
+</div>

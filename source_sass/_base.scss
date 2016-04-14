@@ -1,1 +1,33 @@
 // Add any custom Sass & CSS here
+.title{
+    text-align: center;
+    font-size:40px;
+    margin: 50px 0px 20px 0px;
+    font-family: $font1;
+    .subtitle{
+       font-size:20px; 
+    }
+}
+
+.subtitle{
+       font-size:10px; 
+    }
+
+.info{
+    font-siz:20px;
+}
+
+.lside{
+    text-align: left;
+    
+}
+
+.rside{
+    text-align: right;
+    
+}
+
+h2{
+    color:cadetblue;
+    font: 20px;
+}

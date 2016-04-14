@@ -1,0 +1,57 @@
+<div>
+
+    <div class="row">
+        <div class="text-center columns small-centered">
+            <h3 class="left">Add Task:</h3>
+        </div>
+    </div>
+<!--//--------------------->
+
+    
+    <!-- pass in the variable if our form is valid or invalid -->
+    <div class="row ">
+    <form class="userForm columns small-6 small-centered text-centered" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{'has-error': userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Name <medium style="color: #cc0000">*required</medium></label>
+            
+            <input type="text" name="name" class="form-control" ng-model="task.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block" style="background-color:red; color: white">You name is required.</p>
+        
+        </div>
+        
+        
+<!--         discription -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.discription.$invalid && !userForm.discription.$pristine }">
+            <label>discription</label>
+            <input type="text" name="discription" class="form-control" ng-model="task.discription" >
+            
+            
+             <!-- deadline -->
+        <div class="form-group" ng-class="{'has-error': userForm.deadline.$invalid && !userForm.deadline.$pristine }">
+           <label>Deadline <medium style="color: #cc0000">*required</medium>:
+                        <input ng-model="task.deadline" type="date" required>
+                    </label>
+            
+            <p ng-show="userForm.deadline.$invalid && !userForm.deadline.$pristine" class="help-block" style="background-color:red; color: white">Deadline is required.</p>
+        
+        <!--         Assigned User -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.discription.$invalid && !userForm.discription.$pristine }">
+            <label>Assigned User:
+                        <select ng-model="task.assignedUserName" ng-options="user.name for user in users">
+                            <option value="">---Not Assigned---</option>
+                        </select>
+                    </label>
+            
+        
+            <button type="submit" class="button">Submit</button>
+        
+        
+     </form>
+        <div class="aftersubmit row text-center" style="display:none">
+            <div class="small-6 small-centered">
+                <h3 style="color: #FFFFFF"></h3>
+            </div>
+        </div>
+       

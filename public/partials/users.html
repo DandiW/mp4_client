@@ -1,0 +1,29 @@
+<div >
+    <div class="row">
+        <div class="text-center columns small-centered ">
+            <div class="title">Users</div>
+            <button ng-click="addUser()" class="button success rside">Add User</button>
+        </div>
+    </div>
+
+    <form>
+        <div class="row text-center">
+            <div class="columns small-centered " >
+                <ol class="  small-block-grid-1 block-height" >
+                    <li ng-repeat="user in users" id="{{user._id}}">
+                        <hr>
+                        <div class="lside columns small-6">
+                           
+                            <a ng-click="oneuser(user._id)"   >
+                                <h2 ng-bind="user.name"></h2>
+                            </a>
+                        </div>
+                        <div class="rside columns medium-12">
+                            <button ng-click="delete(user._id)" class="button alert">Delete</button>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </form>
+</div>
