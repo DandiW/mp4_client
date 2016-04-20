@@ -6,6 +6,7 @@
     "biplabdeka <biplab.deka@gmail.com>",
     "sskhandek <sskhandek@gmail.com>"
   ],
+  "main": ["dirPagination.js", "dirPagination.tpl.html"],
   "ignore": [
     "**/.*",
     "node_modules",
