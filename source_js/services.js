@@ -85,33 +85,10 @@ console.log($window.sessionStorage.baseurl);
                 
                 return $http.get( $window.sessionStorage.baseurl + '/api/users?where={"name":\"'+userName+"\"}");
             }
-//            putUser : function(user){
-//                
-//                return $http.put( $window.sessionStorage.baseurl + '/api/users/'+user._id, $.param(user),{
-//                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
-//                });
-//            }
-            //---------------
+
         }
     })
-//    .factory('UserDetailFunction', function($http, $window){
-//        return {
-//            get : function(userID) {
-//                
-//                return $http.get( $window.sessionStorage.baseurl + '/api/users/'+userID);
-//            },
-//            getByName : function(userName){
-//                
-//                return $http.get( $window.sessionStorage.baseurl + '/api/users?where={"name":\"'+userName+"\"}");
-//            },
-//            putUser : function(user){
-//                
-//                return $http.put( $window.sessionStorage.baseurl + '/api/users/'+user._id, $.param(user),{
-//                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
-//                });
-//            }
-//        }
-//    })
+
 
 
 
