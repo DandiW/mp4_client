@@ -1,9 +1,9 @@
 
 
-var TaskManager = angular.module('TaskManager', ['ngRoute', 'Controllers', 'Services']);
+var MP4app = angular.module('MP4app', ['ngRoute', 'mp4Controllers', 'Services','angularUtils.directives.dirPagination']);
 
 
-TaskManager.config(['$routeProvider', function($routeProvider) {
+MP4app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
         when('/users', {
             templateUrl: 'partials/users.html',

@@ -8,7 +8,7 @@
 
     <div class="row ">
         <div class="text-center columns small-centered" >
-            <hr>
+         
             <div class="lside columns medium-6">
                 <div ng-bind="user.name"></div>
             </div>
@@ -18,18 +18,38 @@
             <hr>
         </div>
     </div>
-
+    
+  
+    <div class ="lside title"> Pending Tasks</div>
+    <ul style="list-style-type:none">
+        <li ng-repeat="task in pendingTasks" id="{{task._id}}">
+        <div class ="row">
+            <div class ="lside small-6 columns">
+              <a ng-click="details(task._id)" ng-bind="task.name" >  
+              </a>
+            </div>
+            <div class ="rside small-6 columns">
+                <div>Deadline:</div>
+                <div ng-bind="task.deadline | date"></div>
+                <button ng-click="completeTask(task._id)" class="button">Completed</button>
+            </div>
+        </div>
+        </li>
+    </ul>
+        
+<!--        ----------------------------------------------->
+<!--
     <div class="row">
         <div class="text-center columns small-centered" >
             <div class ="lside title">Pending Tasks</div>
             <ol class=" small-block-grid-1 block-height" >
-                <li ng-repeat="task in pendingT" id="{{task._id}}">
+                <li ng-repeat="task in pendingTasks" id="{{task._id}}">
                     
                     <div class="lside columns small-12">
-<!--                        <a ng-click="details(task._id)" >-->
+                        <a ng-click="details(task._id)" >
                         
                             <a ng-bind="task.name"></a>
-<!--                        </a>-->
+                        </a>
                     </div>
                     <div class="rside columns small-12" >
                         <div>Deadline:</div>
@@ -44,29 +64,55 @@
             <hr>
         </div>
     </div>
+-->
+    
+    
+<!--
+        <table>
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Mark As Complete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in pendingTasks">
+                    <td>
+                        <a ng-href="#/task/{{task._id}}"><span ng-bind="task.name"></span></a>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="completeTask(task._id)">Complete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+-->
+<!--    //////--------------------------->
 
     <div class="row">
         <div class="text-center columns small-centered" >
-            <button ng-click="getCompletedTasks()" class="button">Show Completed Tasks</button>
+            <button ng-click="getcompletedTasks()" class="button">Show Completed Tasks</button>
         </div>
     </div>
+    
     <div class="row">
-        <div class="text-center columns small-centered" >
+        <div class="text-center small-centered" >
             <div class="lside title">Completed Tasks</div>
-            <ol class="lside" >
-                <li ng-repeat="compTask in completedTasks" id="{{compTask._id}}">
+            <ul style="list-style-type:none" >
+                <li ng-repeat="completed in completedTasks" id="{{completed._id}}">
                 <hr>
                     <div class="lside columns small-12">
-                        <a ng-click="details(compTask._id)"   >
-                            <div ng-bind="compTask.name"></div>
+                        <a ng-click="details(completed._id)"   >
+                            <div ng-bind="completed.name"></div>
                         </a>
                     </div>
                     <div class="rside columns small-12" >
                         <h6>Deadline:</h6>
-                        <div ng-bind="compTask.deadline | date"></div>
+                        <div ng-bind="completed.deadline | date"></div>
                     </div>
                 </li>
-            </ol>
+            </ul>
         </div>
     </div>
 </div>

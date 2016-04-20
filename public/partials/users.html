@@ -1,4 +1,4 @@
-<div >
+<div class ="medium-10 small-centered">
     <div class="row">
         <div class="text-center columns small-centered ">
             <div class="title">Users</div>
@@ -8,8 +8,8 @@
 
     <form>
         <div class="row text-center">
-            <div class="columns small-centered " >
-                <ol class="  small-block-grid-1 block-height" >
+            <div class="columns small-centered" >
+                <ul class="small-block-grid-1 block-height" style="list-style-type:none">
                     <li ng-repeat="user in users" id="{{user._id}}">
                         <hr>
                         <div class="lside columns small-6">
@@ -22,7 +22,7 @@
                             <button ng-click="delete(user._id)" class="button alert">Delete</button>
                         </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
     </form>

@@ -53,16 +53,45 @@ console.log($window.sessionStorage.baseurl);
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                 });
             },
-            getUserTasks : function(userID){
+            getAssignedOne : function(userID){
                
                 return $http.get($window.sessionStorage.baseurl+ '/api/tasks?where={"assignedUser":"'+userID+"\"}");
             },
+            getOneUser : function(userID){
+               
+                return $http.get( $window.sessionStorage.baseurl + '/api/users?where={"_id":"'+userID+"\"}");
+                   
+            },
+            putOneUser : function(user){
+                
+                return $http.put( $window.sessionStorage.baseurl + '/api/users/'+user._id, $.param(user),{
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
+                });
+            },
+
             putUserTask : function(task){
                
                 return $http.put($window.sessionStorage.baseurl+ '/api/tasks/'+task._id, $.param(task),{
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                 });
+            },
+            ///-------------
+           
+            getUserDetail : function(userID) {
+                
+                return $http.get( $window.sessionStorage.baseurl + '/api/users/'+userID);
+            },
+            getByName : function(userName){
+                
+                return $http.get( $window.sessionStorage.baseurl + '/api/users?where={"name":\"'+userName+"\"}");
             }
+//            putUser : function(user){
+//                
+//                return $http.put( $window.sessionStorage.baseurl + '/api/users/'+user._id, $.param(user),{
+//                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
+//                });
+//            }
+            //---------------
         }
     })
 //    .factory('UserDetailFunction', function($http, $window){
@@ -123,19 +152,19 @@ console.log($window.sessionStorage.baseurl);
                 return $http.put( $window.sessionStorage.baseurl + '/api/tasks/'+task._id, $.param(task),{
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                 });
+            },
+            getPendingByUser : function(userID){
+                
+                return $http.get( $window.sessionStorage.baseurl + '/api/tasks?where={"assignedUser":"'+userID+"\",\"completed\":false}");
+            },
+            getCompTasksByUser : function(userID){
+                
+                return $http.get( $window.sessionStorage.baseurl + '/api/tasks?where={"assignedUser":"'+userID+"\",\"completed\":true}");
+            },
+            delete : function (taskID) {
+               
+                return $http.delete( $window.sessionStorage.baseurl + '/api/tasks/'+taskID);
             }
-//            getByUser : function(userID){
-//                
-//                return $http.get( $window.sessionStorage.baseurl + '/api/tasks?where={"assignedUser":"'+userID+"\",\"completed\":false}");
-//            },
-//            getCompTasksByUser : function(userID){
-//                
-//                return $http.get( $window.sessionStorage.baseurl + '/api/tasks?where={"assignedUser":"'+userID+"\",\"completed\":true}");
-//            },
-//            delete : function (taskID) {
-//               
-//                return $http.delete( $window.sessionStorage.baseurl + '/api/tasks/'+taskID);
-//            }
         }
     });
 
